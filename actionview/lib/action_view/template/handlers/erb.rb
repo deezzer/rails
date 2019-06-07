@@ -26,7 +26,7 @@ module ActionView
           )
         end
 
-        ENCODING_TAG = Regexp.new("\\A(<%#{ENCODING_FLAG}-?%>)[ \\t]*")
+        ENCODING_TAG = Regexp.new("\\A(<%#{ActionView::ENCODING_FLAG}-?%>)[ \\t]*")
 
         def self.call(template, source)
           new.call(template, source)
