@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 2.15"
+gem "capybara", ">= 3.10.1"
 gem "selenium-webdriver", ">= 3.5.0", "< 3.13.0"
 
 gem "rack-cache", "~> 1.2"
-gem "sass-rails"
+gem "sass-rails", ">= 5.0.8"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.0", ">= 4.0.2", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -34,7 +34,7 @@ gem "rubocop-performance", require: false
 group :doc do
   gem "sdoc", "~> 1.0"
   gem "redcarpet", "~> 3.2.3", platforms: :ruby
-  gem "w3c_validators"
+  gem "w3c_validators", ">= 1.3.4"
   gem "kindlerb", "~> 1.2.0"
 end
 
@@ -93,7 +93,7 @@ gem "webmock"
 
 group :ujs do
   gem "qunit-selenium"
-  gem "webdrivers"
+  gem "webdrivers", ">= 3.7.0"
 end
 
 # Add your own local bundler stuff.
@@ -114,7 +114,7 @@ group :test do
 end
 
 platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
-  gem "nokogiri", ">= 1.8.1"
+  gem "nokogiri", ">= 1.11.4"
 
   # Needed for compiling the ActionDispatch::Journey parser.
   gem "racc", ">=1.4.6", require: false
