@@ -9,13 +9,13 @@ gemspec
 # We need a newish Rake since Active Job sets its test tasks' descriptions.
 gem "rake", ">= 11.1"
 
-gem "capybara", ">= 2.15"
-gem "selenium-webdriver", ">= 3.5.0", "< 3.13.0"
+gem "capybara", ">= 3.11.0"
+gem "selenium-webdriver", "~> 3.13"
 
-gem "rack-cache", "~> 1.2"
-gem "sass-rails"
+gem "rack-cache", "~> 1.9", ">= 1.9.0"
+gem "sass-rails", ">= 6.0.0"
 gem "turbolinks", "~> 5"
-gem "webpacker", "~> 4.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+gem "webpacker", "~> 4.0", ">= 4.0.3", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -32,9 +32,9 @@ gem "rubocop", ">= 0.47", require: false
 gem "rubocop-performance", require: false
 
 group :doc do
-  gem "sdoc", "~> 1.0"
+  gem "sdoc", "~> 1.1", ">= 1.1.0"
   gem "redcarpet", "~> 3.2.3", platforms: :ruby
-  gem "w3c_validators"
+  gem "w3c_validators", ">= 1.3.5"
   gem "kindlerb", "~> 1.2.0"
 end
 
@@ -49,16 +49,16 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 # Active Job
 group :job do
-  gem "resque", require: false
-  gem "resque-scheduler", require: false
+  gem "resque", ">= 2.0.0", require: false
+  gem "resque-scheduler", ">= 4.4.0", require: false
   gem "sidekiq", require: false
   gem "sucker_punch", require: false
-  gem "delayed_job", require: false
+  gem "delayed_job", ">= 4.1.9", require: false
   gem "queue_classic", github: "QueueClassic/queue_classic", require: false, platforms: :ruby
-  gem "sneakers", require: false
+  gem "sneakers", ">= 2.12.0", require: false
   gem "que", require: false
   gem "backburner", require: false
-  gem "delayed_job_active_record", require: false
+  gem "delayed_job_active_record", ">= 4.1.5", require: false
   gem "sequel", require: false
 end
 
@@ -73,14 +73,14 @@ group :cable do
 
   gem "websocket-client-simple", github: "matthewd/websocket-client-simple", branch: "close-race", require: false
 
-  gem "blade", require: false, platforms: [:ruby]
+  gem "blade", ">= 0.7.2", require: false, platforms: [:ruby]
   gem "blade-sauce_labs_plugin", require: false, platforms: [:ruby]
   gem "sprockets-export", require: false
 end
 
 # Active Storage
 group :storage do
-  gem "aws-sdk-s3", require: false
+  gem "aws-sdk-s3", ">= 1.24.0", require: false
   gem "google-cloud-storage", "~> 1.11", require: false
   gem "azure-storage", require: false
 
@@ -93,7 +93,7 @@ gem "webmock"
 
 group :ujs do
   gem "qunit-selenium"
-  gem "webdrivers"
+  gem "webdrivers", ">= 3.7.1"
 end
 
 # Add your own local bundler stuff.
@@ -160,5 +160,5 @@ end
 
 # A gem necessary for Active Record tests with IBM DB.
 gem "ibm_db" if ENV["IBM_DB"]
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", ">= 1.2018.8", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "wdm", ">= 0.1.0", platforms: [:mingw, :mswin, :x64_mingw, :mswin64]
